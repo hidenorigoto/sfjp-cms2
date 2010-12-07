@@ -1,0 +1,5 @@
+default:
+  enabled:     false
+  with_layout: true
+  lifetime:    43200
+  client_lifetime:  0
