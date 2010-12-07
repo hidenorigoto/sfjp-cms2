@@ -102,7 +102,7 @@ EOF;
 
                 if (preg_match('/up\-to\-date/i', $pullMessage)) {
                     $this->log('更新はありません');
-                    //return;
+                    return;
                 }
             }
             catch (Exception $e) {
@@ -245,6 +245,8 @@ EOF;
                     $commit_record->setCommitKey($commit);
                     $commit_record->setPage($page);
                     $commit_record->save();
+                    $commit_record->free();
+                    unset($commit_record);
                 }
             }
 
@@ -326,6 +328,8 @@ EOF;
 
             // 保存する。
             $page->save();
+            $page->free();
+            unset($page);
         }
 
 
